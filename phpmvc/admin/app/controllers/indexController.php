@@ -11,20 +11,7 @@ class indexController {
         $articleModel = new articleModel();
         $record = $articleModel->getRows();
 
-        echo "<pre>";
-        print_r($articleModel);
-        echo "</pre>";
-
-        echo "<pre>";
-        print_r($record);
-        echo "</pre>";
-        //$userModel::getUsers();
-        //$userModel::getSingleUser();
-
-echo __METHOD__;
-exit;
-
-        $name = "PHP MVC";
+        $name = "PHP MVC 1";
         return view('index', 'index', array('name' => $name));
     }
 }
