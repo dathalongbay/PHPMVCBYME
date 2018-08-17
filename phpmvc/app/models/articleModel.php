@@ -12,9 +12,7 @@ class articleModel extends Database {
         $this->conn = self::$connection;
     }
 
-    public function getInsertLastId() {
-        return $this->conn->insert_id;
-    }
+
 
     public function getRow($id) {
 
@@ -47,67 +45,5 @@ class articleModel extends Database {
         return array();
     }
 
-    public function store($data) {
 
-        $id = isset($data['id']) ? $data['id'] : 0;
-
-        if ($id > 0) {
-            $data_default = array('title' => '', 'article_content' => '', 'status' => 0);
-            $data = array_merge($data_default, $data);
-
-            $update = '';
-            foreach ($data as $field => $value) {
-                if (is_numeric($value)) {
-                    $update .= $field . " = " . (int)$value;
-                } else {
-                    $update .= $field . " = '" . mysqli_real_escape_string($value) . "'";
-                }
-            }
-
-            // update
-            $sql = "UPDATE ".$this->table." SET ".$update." WHERE id=".(int)$id;
-
-            if ($this->conn->query($sql) === TRUE) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            // insert
-            $data_default = array('title' => '', 'article_content' => '', 'status' => 0);
-            $data = array_merge($data_default, $data);
-
-            $fields = array();
-            $fields[] = 'title';
-            $fields[] = 'article_content';
-            $fields[] = 'status';
-
-            $values = array();
-            $values[] = "'".mysqli_real_escape_string($data['title'])."'";
-            $values[] = "'".mysqli_real_escape_string($data['article_content'])."'";
-            $values[] = $data['status'];
-
-            $sql = "INSERT INTO ".$this->table." (".implode(',', $fields).")
-VALUES (".implode(',', $values).")";
-
-            if ($this->conn->query($sql) === TRUE) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-       return false;
-    }
-
-    public function remove($id) {
-
-        $sql = "DELETE FROM ".$this->table." WHERE id = " . (int) $id;
-
-        if ($this->conn->query($sql) === TRUE) {
-            return true;
-        }
-
-        return false;
-    }
 }

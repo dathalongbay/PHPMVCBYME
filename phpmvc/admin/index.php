@@ -1,17 +1,19 @@
 <?php
-$main_path = dirname(__FILE__);
-define('ADMIN_APP_PATH', $main_path.'/app');
-define('ADMIN_CONTROLLER_PATH', $main_path.'/app/controllers');
-define('ADMIN_MODEL_PATH', $main_path.'/app/models');
-define('ADMIN_VIEW_PATH', $main_path.'/app/views');
-define('ADMIN_URL', 'http://localhost/projectsbyme/phpmvc/admin/');
-define('ADMIN_URL_ASSETS', 'http://localhost/projectsbyme/phpmvc/assets/admin/');
+$admin_path = dirname(__FILE__);
+$site_path = dirname($admin_path);
+define('ADMIN_APP_PATH', $admin_path.'/app');
+define('ADMIN_CONTROLLER_PATH', $admin_path.'/app/controllers');
+define('ADMIN_MODEL_PATH', $admin_path.'/app/models');
+define('ADMIN_VIEW_PATH', $admin_path.'/app/views');
+define('CORE_PATH', $site_path.'/core');
+define('DB_PATH', $site_path.'/core/database');
+define('HELPER_PATH', $admin_path.'/core/helper');
+define('ADMIN_URL', 'http://localhost/PHPMVCBYME/phpmvc/admin/');
+define('ADMIN_URL_ASSETS', 'http://localhost/PHPMVCBYME/phpmvc/admin/assets/');
 
-echo APP_PATH;
-exit;
 
 spl_autoload_register(function ($class_name) {
-    $paths = array(APP_PATH, CONTROLLER_PATH, MODEL_PATH, VIEW_PATH, CORE_PATH, DB_PATH, HELPER_PATH);
+    $paths = array(ADMIN_APP_PATH, ADMIN_CONTROLLER_PATH, ADMIN_MODEL_PATH, ADMIN_VIEW_PATH, CORE_PATH, DB_PATH, HELPER_PATH);
     foreach ($paths as $class_file_path) {
         $full_path = $class_file_path.'/'.$class_name.'.php';
         if (file_exists($full_path)) {
@@ -20,11 +22,11 @@ spl_autoload_register(function ($class_name) {
     }
 });
 
-function view($view, $data) {
+function view($view, $action, $data) {
     ob_start();
 
     extract($data);
-    require VIEW_PATH.'/'.$view.'/'.$view.'.php';
+    require ADMIN_VIEW_PATH.'/'.$view.'/'.$action.'.php';
 
     $out = ob_get_contents();
 
@@ -50,4 +52,5 @@ if (class_exists($controllerClass)) {
 } else {
     $controllerClass = 'errorController';
     $instanceController = new $controllerClass();
+    $instanceController->indexAction();
 }

@@ -8,12 +8,12 @@ class productcatController {
     public function indexAction() {
 
         $name = "PHP Article";
-        return view('index', array('name' => $name));
+        return view('index', 'index', array('name' => $name));
     }
 
     public function editAction() {
 
         $name = "PHP Edit";
-        return view('index', array('name' => $name));
+        return view('index', 'edit', array('name' => $name));
     }
 }

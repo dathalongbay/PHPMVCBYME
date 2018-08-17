@@ -1,12 +1,12 @@
 <?php
-$main_path = dirname(__FILE__);
-define('APP_PATH', $main_path.'/app');
-define('CONTROLLER_PATH', $main_path.'/app/controllers');
-define('MODEL_PATH', $main_path.'/app/models');
-define('VIEW_PATH', $main_path.'/app/views');
-define('CORE_PATH', $main_path.'/core');
-define('DB_PATH', $main_path.'/core/database');
-define('HELPER_PATH', $main_path.'/core/helper');
+$site_path = dirname(__FILE__);
+define('APP_PATH', $site_path.'/app');
+define('CONTROLLER_PATH', $site_path.'/app/controllers');
+define('MODEL_PATH', $site_path.'/app/models');
+define('VIEW_PATH', $site_path.'/app/views');
+define('CORE_PATH', $site_path.'/core');
+define('DB_PATH', $site_path.'/core/database');
+define('HELPER_PATH', $site_path.'/core/helper');
 define('URL', 'http://localhost/PHPMVCBYME/phpmvc/');
 define('URL_ASSETS', 'http://localhost/PHPMVCBYME/phpmvc/assets/');
 
@@ -22,11 +22,11 @@ spl_autoload_register(function ($class_name) {
 
 
 
-function view($view, $data) {
+function view($view, $action, $data) {
     ob_start();
 
     extract($data);
-    require VIEW_PATH.'/'.$view.'/'.$view.'.php';
+    require VIEW_PATH.'/'.$view.'/'.$action.'.php';
 
     $out = ob_get_contents();
 
@@ -57,4 +57,5 @@ if (class_exists($controllerClass)) {
 } else {
     $controllerClass = 'errorController';
     $instanceController = new $controllerClass();
+    $instanceController->indexAction();
 }
