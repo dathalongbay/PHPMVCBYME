@@ -26,8 +26,7 @@ function view($view, $data) {
     ob_start();
 
     extract($data);
-    //require VIEW_PATH.'/'.$view.'/'.$view.'.php';
-    require VIEW_PATH.'/index2/index2.php';
+    require VIEW_PATH.'/'.$view.'/'.$view.'.php';
 
     $out = ob_get_contents();
 
