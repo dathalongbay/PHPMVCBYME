@@ -9,9 +9,14 @@ class indexController {
 
 
         $articleModel = new articleModel();
+        $record = $articleModel->getRow(1);
 
         echo "<pre>";
         print_r($articleModel);
+        echo "</pre>";
+
+        echo "<pre>";
+        print_r($record);
         echo "</pre>";
         //$userModel::getUsers();
         //$userModel::getSingleUser();
