@@ -7,6 +7,7 @@ class indexController {
 
     public function indexAction() {
 
+
         //$userModel = new UserModel();
         //$userModel::getUsers();
         //$userModel::getSingleUser();

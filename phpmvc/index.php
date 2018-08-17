@@ -7,8 +7,8 @@ define('VIEW_PATH', $main_path.'/app/views');
 define('CORE_PATH', $main_path.'/core');
 define('DB_PATH', $main_path.'/core/database');
 define('HELPER_PATH', $main_path.'/core/helper');
-define('URL', 'http://localhost/projectsbyme/phpmvc/');
-define('URL_ASSETS', 'http://localhost/projectsbyme/phpmvc/assets/');
+define('URL', 'http://localhost/PHPMVCBYME/phpmvc/');
+define('URL_ASSETS', 'http://localhost/PHPMVCBYME/phpmvc/assets/');
 
 spl_autoload_register(function ($class_name) {
     $paths = array(APP_PATH, CONTROLLER_PATH, MODEL_PATH, VIEW_PATH, CORE_PATH, DB_PATH, HELPER_PATH);
@@ -20,11 +20,14 @@ spl_autoload_register(function ($class_name) {
     }
 });
 
+
+
 function view($view, $data) {
     ob_start();
 
     extract($data);
-    require VIEW_PATH.'/'.$view.'/'.$view.'.php';
+    //require VIEW_PATH.'/'.$view.'/'.$view.'.php';
+    require VIEW_PATH.'/index2/index2.php';
 
     $out = ob_get_contents();
 
@@ -34,14 +37,19 @@ function view($view, $data) {
 }
 
 $controller = isset($_REQUEST['controller']) ? $_REQUEST['controller'] : 'index';
+
 $controller = strtolower($controller);
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : 'index';
 $action = strtolower($action);
+
+
 $actionName = $action.'Action';
 $controllerClass = $controller.'Controller';
 
+
 if (class_exists($controllerClass)) {
     $instanceController = new $controllerClass();
+
     if (method_exists($instanceController, $actionName)) {
         $instanceController->$actionName();
     } else {
