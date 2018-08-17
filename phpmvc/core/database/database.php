@@ -14,9 +14,9 @@ class Database {
 
     public function connect() {
         $servername = "localhost";
-        $username = "username";
-        $password = "password";
-        $dbname = "myDB";
+        $username = "root";
+        $password = "";
+        $dbname = "mvc";
 
         // Create connection
         self::$connection = new mysqli($servername, $username, $password, $dbname);
