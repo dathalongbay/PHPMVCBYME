@@ -22,6 +22,9 @@ spl_autoload_register(function ($class_name) {
     }
 });
 
+/*$app = new Application();
+$app->run();*/
+
 function view($view, $action, $data) {
     ob_start();
 
@@ -34,6 +37,7 @@ function view($view, $action, $data) {
 
     echo $out;
 }
+
 
 $controller = isset($_REQUEST['controller']) ? $_REQUEST['controller'] : 'index';
 $controller = strtolower($controller);

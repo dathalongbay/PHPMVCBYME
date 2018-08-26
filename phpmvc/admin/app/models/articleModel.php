@@ -51,21 +51,38 @@ class articleModel extends Database {
 
         $id = isset($data['id']) ? $data['id'] : 0;
 
+
         if ($id > 0) {
             $data_default = array('title' => '', 'article_content' => '', 'status' => 0);
             $data = array_merge($data_default, $data);
+            unset($data['id']);
+
 
             $update = '';
             foreach ($data as $field => $value) {
-                if (is_numeric($value)) {
-                    $update .= $field . " = " . (int)$value;
+
+                var_dump($value);
+
+                if (!$update) {
+                    if (is_numeric($value)) {
+                        $update .= " " . $field . " = " . (int)$value;
+                    } else {
+                        $update .= " " . $field . " = '" . mysqli_real_escape_string($this->conn, $value) . "'";
+                    }
                 } else {
-                    $update .= $field . " = '" . mysqli_real_escape_string($value) . "'";
+                    if (is_numeric($value)) {
+                        $update .= " , " . $field . " = " . (int)$value;
+                    } else {
+                        $update .= " , " . $field . " = '" . mysqli_real_escape_string($this->conn, $value) . "'";
+                    }
                 }
+
             }
 
             // update
             $sql = "UPDATE ".$this->table." SET ".$update." WHERE id=".(int)$id;
+
+
 
             if ($this->conn->query($sql) === TRUE) {
                 return true;
@@ -83,9 +100,9 @@ class articleModel extends Database {
             $fields[] = 'status';
 
             $values = array();
-            $values[] = "'".mysqli_real_escape_string($data['title'])."'";
-            $values[] = "'".mysqli_real_escape_string($data['article_content'])."'";
-            $values[] = $data['status'];
+            $values[] = "'".mysqli_real_escape_string($this->conn, $data['title'])."'";
+            $values[] = "'".mysqli_real_escape_string($this->conn, $data['article_content'])."'";
+            $values[] = (int) $data['status'];
 
             $sql = "INSERT INTO ".$this->table." (".implode(',', $fields).")
 VALUES (".implode(',', $values).")";

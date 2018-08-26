@@ -211,18 +211,18 @@
                     <form name="" action="<?php echo ADMIN_URL . 'index.php?controller=article&action=store'; ?>" method="post">
                         <div class="form-group">
                             <label>Tiêu đề:</label>
-                            <input type="text" name="title" class="form-control" value="<?php echo $article['title'] ?>">
-                            <input type="hidden" name="id" class="form-control" value="<?php echo $article['id'] ?>">
+                            <input type="text" name="title" class="form-control" value="">
+                            <input type="hidden" name="id" class="form-control" value="0">
                         </div>
                         <div class="form-group">
                             <label>Nội dung:</label>
-                            <textarea name="article_content" class="form-control" rows="10"><?php echo $article['article_content'] ?></textarea>
+                            <textarea name="article_content" class="form-control" rows="10"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Trạng thái:</label>
                             <select name="status" class="form-control">
-                                <option value="0" <?php echo ($article['status'] == 0) ? 'selected' : '' ?>>Không xuất bản</option>
-                                <option value="1" <?php echo ($article['status'] == 1) ? 'selected' : '' ?>>Xuất bản</option>
+                                <option value="0">Không xuất bản</option>
+                                <option value="1">Xuất bản</option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-success">Lưu lại</button>

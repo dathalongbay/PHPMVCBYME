@@ -22,16 +22,55 @@ class articleController {
      */
     public function editAction() {
 
-        $name = "PHP Edit";
-        return view('article', 'edit', array('name' => $name));
+        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+
+        $articleModel = new articleModel();
+        $article = $articleModel->getRow($id);
+
+        return view('article', 'edit', array('article' => $article));
+    }
+
+    public function addAction() {
+
+
+        $articleModel = new articleModel();
+
+        return view('article', 'add', array());
+    }
+
+    public function storeAction() {
+        $data = $_POST;
+
+        $articleModel = new articleModel();
+        $articleModel->store($data);
+
+        if ($data['id'] > 0) {
+            $newURL = ADMIN_URL . 'index.php?controller=article&action=edit&id='.$data['id'];
+        } else {
+            $newURL = ADMIN_URL . 'index.php?controller=article&action=edit&id='.$articleModel->getInsertLastId();
+        }
+
+
+
+        header("Location: $newURL");
+        die();
     }
 
     /**
      * xoa 1 bai viet
      */
     public function deleteAction(){
-        $name = "PHP Edit";
-        return view('index', 'delete', array('name' => $name));
+
+        $id = $_GET['id'];
+        $articleModel = new articleModel();
+
+        if ($id > 0) {
+            $articleModel->remove($id);
+        }
+
+        $articles = $articleModel->getRows();
+
+        return view('article', 'index', array('articles' => $articles));
     }
 
     /**
