@@ -280,7 +280,7 @@
                                 <div class='bar_group__bar thin' label='Amount' show_values='true' tooltip='true' value='550'></div>
                                 <div class='bar_group__bar thin' label='Farming' show_values='true' tooltip='true' value='456'></div>
                             </div>
-                            <script src="js/bars.js"></script>
+                            <script src="<?php echo ADMIN_URL_ASSETS ?>js/bars.js"></script>
 
                             <!--//Progress bars-->
                         </div>
