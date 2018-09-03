@@ -6,6 +6,7 @@
     <div class="menu">
         <ul id="menu" >
             <li id="menu-home" ><a href="<?php echo ADMIN_URL . 'index.php?controller=index&action=index'; ?>"><i class="fa fa-tachometer"></i><span>Bảng điều khiển</span></a></li>
+            <li id="menu-home" ><a href="<?php echo ADMIN_URL . 'index.php?controller=admin&action=index'; ?>"><i class="fa fa-tachometer"></i><span>Quản trị viên</span></a></li>
             <li id="menu-home" ><a href="<?php echo ADMIN_URL . 'index.php?controller=article&action=index'; ?>"><i class="fa fa-tachometer"></i><span>Bài viết</span></a></li>
 
             <li><a href="<?php echo ADMIN_URL . 'index.php?controller=product&action=index'; ?>"><i class="fa fa-cogs"></i><span>Sản phẩm</span><span class="fa fa-angle-right" style="float: right"></span></a>

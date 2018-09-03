@@ -14,16 +14,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- css -->
-    <link href="<?php echo URL_ASSETS.'css/bootstrap.css' ?>" rel="stylesheet" type="text/css" media="all" />
-    <link rel="stylesheet" href="<?php echo URL_ASSETS.'css/style.css' ?>" type="text/css" media="all" />
-    <link rel="stylesheet" href="<?php echo URL_ASSETS.'css/font-awesome.min.css' ?>" type="text/css" media="all" />
+    <link href="<?php echo URL_ASSETS ?>css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="<?php echo URL_ASSETS ?>css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="<?php echo URL_ASSETS ?>css/font-awesome.min.css" type="text/css" media="all" />
     <!--// css -->
     <!-- font -->
     <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
     <!-- //font -->
-    <script src="<?php echo URL_ASSETS.'js/jquery-1.11.1.min.js' ?>"></script>
-    <script src="<?php echo URL_ASSETS.'js/bootstrap.js' ?>"></script>
+    <script src="<?php echo URL_ASSETS ?>js/jquery-1.11.1.min.js"></script>
+    <script src="<?php echo URL_ASSETS ?>js/bootstrap.js"></script>
 </head>
 
 <body>
@@ -81,7 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </ul>
                                     </div>
                                     <div class="col-sm-4 w3l">
-                                        <a href="women.html"><img src="images/menu1.jpg" class="img-responsive" alt=""></a>
+                                        <a href="women.html"><img src="<?php echo URL_ASSETS ?>images/menu1.jpg" class="img-responsive" alt=""></a>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -113,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                     </div>
                                     <div class="col-sm-4 w3l">
-                                        <a href="jewellery.html"><img src="images/menu2.jpg" class="img-responsive" alt=""></a>
+                                        <a href="jewellery.html"><img src="<?php echo URL_ASSETS ?>images/menu2.jpg" class="img-responsive" alt=""></a>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -864,7 +864,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <div class="col-md-3 top-product-grids tp4">
                                 <a href="single.html"><div class="product-img">
-                                        <img src="images/cp7.jpg" alt="" />
+                                        <img src="<?php echo URL_ASSETS ?>images/cp7.jpg" alt="" />
                                         <div class="p-mask">
                                             <form action="#" method="post">
                                                 <input type="hidden" name="cmd" value="_cart" />
@@ -885,7 +885,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <div class="col-md-3 top-product-grids tp4">
                                 <a href="single.html"><div class="product-img">
-                                        <img src="images/cp8.jpg" alt="" />
+                                        <img src="<?php echo URL_ASSETS ?>images/cp8.jpg" alt="" />
                                         <div class="p-mask">
                                             <form action="#" method="post">
                                                 <input type="hidden" name="cmd" value="_cart" />
@@ -912,7 +912,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
 </div>
-<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+<script src="<?php echo URL_ASSETS ?>js/easyResponsiveTabs.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#horizontalTab').easyResponsiveTabs({
@@ -988,7 +988,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="clearfix"></div>
     </div>
-    <script src="js/jquery.wmuSlider.js"></script>
+    <script src="<?php echo URL_ASSETS ?>js/jquery.wmuSlider.js"></script>
     <script>
         $('.example1').wmuSlider();
     </script>
@@ -1043,7 +1043,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             });
         </script>
-        <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+        <script type="text/javascript" src="<?php echo URL_ASSETS ?>js/jquery.flexisel.js"></script>
     </div>
 </div>
 <!-- //top-brands -->
@@ -1111,7 +1111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
 <!-- cart-js -->
-<script src="js/minicart.js"></script>
+<script src="<?php echo URL_ASSETS ?>js/minicart.js"></script>
 <script>
     w3ls1.render();
 

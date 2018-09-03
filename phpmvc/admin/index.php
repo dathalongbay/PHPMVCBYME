@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $admin_path = dirname(__FILE__);
 $site_path = dirname($admin_path);
 define('ADMIN_APP_PATH', $admin_path.'/app');
@@ -8,8 +10,8 @@ define('ADMIN_VIEW_PATH', $admin_path.'/app/views');
 define('CORE_PATH', $site_path.'/core');
 define('DB_PATH', $site_path.'/core/database');
 define('HELPER_PATH', $admin_path.'/core/helper');
-define('ADMIN_URL', 'http://localhost/PHPMVCBYME/phpmvc/admin/');
-define('ADMIN_URL_ASSETS', 'http://localhost/PHPMVCBYME/phpmvc/admin/assets/');
+define('ADMIN_URL', 'http://codeme.edu.vn/admin/');
+define('ADMIN_URL_ASSETS', ADMIN_URL.'assets/');
 
 
 spl_autoload_register(function ($class_name) {
@@ -48,6 +50,7 @@ $controllerClass = $controller.'Controller';
 
 if (class_exists($controllerClass)) {
     $instanceController = new $controllerClass();
+
     if (method_exists($instanceController, $actionName)) {
         $instanceController->$actionName();
     } else {

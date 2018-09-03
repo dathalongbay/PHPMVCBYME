@@ -7,8 +7,8 @@ define('VIEW_PATH', $site_path.'/app/views');
 define('CORE_PATH', $site_path.'/core');
 define('DB_PATH', $site_path.'/core/database');
 define('HELPER_PATH', $site_path.'/core/helper');
-define('URL', 'http://localhost/PHPMVCBYME/phpmvc/');
-define('URL_ASSETS', 'http://localhost/PHPMVCBYME/phpmvc/assets/');
+define('URL', 'http://codeme.edu.vn/');
+define('URL_ASSETS', URL.'assets/');
 
 spl_autoload_register(function ($class_name) {
     $paths = array(APP_PATH, CONTROLLER_PATH, MODEL_PATH, VIEW_PATH, CORE_PATH, DB_PATH, HELPER_PATH);
