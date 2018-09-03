@@ -41,14 +41,15 @@ and open the template in the editor.
 
                     $mail->isSMTP();
 
-                    $mail->Host = 'smtp.gmail.com';
+                    $mail->Host = 'smtp.googlemail.com';
 
-                    $mail->Port = 587;
+                    $mail->Port = 465;
 
-                    $mail->SMTPSecure = 'tls';
+                    $mail->SMTPSecure = 'ssl';
 
                     $mail->SMTPAuth = true;
 
+                    //eslbektrtkweaqlq
                     $mail->Username = $email;
 
                     $mail->Password = $password;
