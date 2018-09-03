@@ -1,5 +1,5 @@
 <?php
-class articleController {
+class articleController extends appController{
 
     public function __construct()
     {
@@ -12,7 +12,7 @@ class articleController {
     public function indexAction() {
 
         $name = "PHP Article";
-        return view('index', 'index', array('name' => $name));
+        return $this->view('index', 'index', array('name' => $name));
     }
 
     /**
@@ -21,7 +21,7 @@ class articleController {
     public function editAction() {
 
         $name = "PHP Edit";
-        return view('index', 'edit', array('name' => $name));
+        return $this->view('index', 'edit', array('name' => $name));
     }
 
     /**
@@ -29,7 +29,7 @@ class articleController {
      */
     public function deleteAction(){
         $name = "PHP Edit";
-        return view('index', 'delete', array('name' => $name));
+        return $this->view('index', 'delete', array('name' => $name));
     }
 
     /**

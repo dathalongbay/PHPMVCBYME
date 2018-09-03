@@ -1,5 +1,5 @@
 <?php
-class productcatController {
+class productcatController extends appController{
 
     public function __construct()
     {
@@ -8,12 +8,12 @@ class productcatController {
     public function indexAction() {
 
         $name = "PHP Article";
-        return view('index', 'index', array('name' => $name));
+        return $this->view('index', 'index', array('name' => $name));
     }
 
     public function editAction() {
 
         $name = "PHP Edit";
-        return view('index', 'edit', array('name' => $name));
+        return $this->view('index', 'edit', array('name' => $name));
     }
 }

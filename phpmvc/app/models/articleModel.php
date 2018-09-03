@@ -12,8 +12,6 @@ class articleModel extends Database {
         $this->conn = self::$connection;
     }
 
-
-
     public function getRow($id) {
 
         $sql = "SELECT * FROM " . $this->table . " WHERE id=" . (int) $id;

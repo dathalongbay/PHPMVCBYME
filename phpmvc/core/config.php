@@ -1,7 +1,9 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: datdx2
- * Date: 8/6/2018
- * Time: 1:39 PM
+ * CONNECT DB
  */
+define('DB_SERVERNAME', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_NAME', 'mvc');

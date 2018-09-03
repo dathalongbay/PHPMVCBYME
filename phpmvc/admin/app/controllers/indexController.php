@@ -1,5 +1,5 @@
 <?php
-class indexController {
+class indexController extends appController{
 
     public function __construct()
     {
@@ -23,6 +23,6 @@ class indexController {
         }
 
         $name = "PHP MVC 1";
-        return view('index', 'index', array('name' => $name));
+        return $this->view('index', 'index', array('name' => $name));
     }
 }

@@ -1,5 +1,5 @@
 <?php
-class articleController {
+class articleController extends appController{
 
     public function __construct()
     {
@@ -14,7 +14,7 @@ class articleController {
         $articleModel = new articleModel();
         $articles = $articleModel->getRows();
 
-        return view('article', 'index', array('articles' => $articles));
+        return $this->view('article', 'index', array('articles' => $articles));
     }
 
     /**
@@ -27,7 +27,7 @@ class articleController {
         $articleModel = new articleModel();
         $article = $articleModel->getRow($id);
 
-        return view('article', 'edit', array('article' => $article));
+        return $this->view('article', 'edit', array('article' => $article));
     }
 
     public function addAction() {
@@ -35,7 +35,7 @@ class articleController {
 
         $articleModel = new articleModel();
 
-        return view('article', 'add', array());
+        return $this->view('article', 'add', array());
     }
 
     public function storeAction() {
@@ -70,7 +70,7 @@ class articleController {
 
         $articles = $articleModel->getRows();
 
-        return view('article', 'index', array('articles' => $articles));
+        return $this->view('article', 'index', array('articles' => $articles));
     }
 
     /**

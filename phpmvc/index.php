@@ -1,12 +1,16 @@
 <?php
+session_start();
+
 $site_path = dirname(__FILE__);
-define('APP_PATH', $site_path.'/app');
-define('CONTROLLER_PATH', $site_path.'/app/controllers');
-define('MODEL_PATH', $site_path.'/app/models');
-define('VIEW_PATH', $site_path.'/app/views');
-define('CORE_PATH', $site_path.'/core');
-define('DB_PATH', $site_path.'/core/database');
-define('HELPER_PATH', $site_path.'/core/helper');
+define('SITE_PATH', $site_path);
+define('IS_ADMIN', 0);
+define('APP_PATH', SITE_PATH.'/app');
+define('CONTROLLER_PATH', SITE_PATH.'/app/controllers');
+define('MODEL_PATH', SITE_PATH.'/app/models');
+define('VIEW_PATH', SITE_PATH.'/app/views');
+define('CORE_PATH', SITE_PATH.'/core');
+define('DB_PATH', SITE_PATH.'/core/database');
+define('HELPER_PATH', SITE_PATH.'/core/helper');
 define('URL', 'http://codeme.edu.vn/');
 define('URL_ASSETS', URL.'assets/');
 
@@ -20,42 +24,5 @@ spl_autoload_register(function ($class_name) {
     }
 });
 
-
-
-function view($view, $action, $data) {
-    ob_start();
-
-    extract($data);
-    require VIEW_PATH.'/'.$view.'/'.$action.'.php';
-
-    $out = ob_get_contents();
-
-    ob_end_clean();
-
-    echo $out;
-}
-
-$controller = isset($_REQUEST['controller']) ? $_REQUEST['controller'] : 'index';
-
-$controller = strtolower($controller);
-$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : 'index';
-$action = strtolower($action);
-
-
-$actionName = $action.'Action';
-$controllerClass = $controller.'Controller';
-
-
-if (class_exists($controllerClass)) {
-    $instanceController = new $controllerClass();
-
-    if (method_exists($instanceController, $actionName)) {
-        $instanceController->$actionName();
-    } else {
-        $instanceController->indexAction();
-    }
-} else {
-    $controllerClass = 'errorController';
-    $instanceController = new $controllerClass();
-    $instanceController->indexAction();
-}
+$app = new Application();
+$app->run();

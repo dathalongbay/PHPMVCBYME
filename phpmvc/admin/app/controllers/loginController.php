@@ -1,5 +1,5 @@
 <?php
-class loginController {
+class loginController extends appController{
 
     public function __construct()
     {
@@ -50,7 +50,7 @@ class loginController {
 
         }
 
-        return view('login', 'index', array());
+        return $this->view('login', 'index', array());
     }
 
     /**

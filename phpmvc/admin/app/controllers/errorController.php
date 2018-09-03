@@ -1,5 +1,5 @@
 <?php
-class errorController {
+class errorController extends appController{
 
     public function __construct()
     {
@@ -8,6 +8,6 @@ class errorController {
     public function indexAction() {
 
         $name = "404";
-        return view('error', 'index', array('name' => $name));
+        return $this->view('error', 'index', array('name' => $name));
     }
 }

@@ -1,5 +1,5 @@
 <?php
-class adminController {
+class adminController extends appController{
 
     public function __construct()
     {
@@ -14,7 +14,7 @@ class adminController {
         $adminModel = new adminModel();
         $admins = $adminModel->getRows();
 
-        return view('admin', 'index', array('admins' => $admins));
+        return $this->view('admin', 'index', array('admins' => $admins));
     }
 
     /**
@@ -27,7 +27,7 @@ class adminController {
         $adminModel = new adminModel();
         $admin = $adminModel->getRow($id);
 
-        return view('admin', 'edit', array('admin' => $admin));
+        return $this->view('admin', 'edit', array('admin' => $admin));
     }
 
     public function addAction() {
@@ -35,7 +35,7 @@ class adminController {
 
         $adminModel = new adminModel();
 
-        return view('admin', 'add', array());
+        return $this->view('admin', 'add', array());
     }
 
     public function storeAction() {
@@ -70,7 +70,7 @@ class adminController {
 
         $admins = $adminModel->getRows();
 
-        return view('admin', 'index', array('admins' => $admins));
+        return $this->view('admin', 'index', array('admins' => $admins));
     }
 
     /**
