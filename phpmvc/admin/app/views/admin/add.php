@@ -13,7 +13,7 @@
                         <a class="btn btn-success" href="<?php echo ADMIN_URL . 'index.php?controller=admin'; ?>">Danh sách quản trị viên</a>
                     </div>
 
-                    <form name="" action="<?php echo ADMIN_URL . 'index.php?controller=admin&action=store'; ?>" method="post">
+                    <form name="" action="<?php echo ADMIN_URL . 'index.php?controller=admin&action=store'; ?>" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>Email :</label>
                             <input type="text" name="email" class="form-control" value="">
@@ -22,6 +22,26 @@
                         <div class="form-group">
                             <label>Password :</label>
                             <input type="text" name="password" class="form-control" value="">
+                        </div>
+                        <div class="form-group">
+                            <label>Username :</label>
+                            <input type="text" name="username" class="form-control" value="">
+                        </div>
+                        <div class="form-group">
+                            <label>Ảnh đại diện :</label>
+                            <input type="file" name="avatar">
+                        </div>
+                        <div class="form-group">
+                            <label>Tên :</label>
+                            <input type="text" name="name" class="form-control" value="">
+                        </div>
+                        <div class="form-group">
+                            <label>Địa chỉ :</label>
+                            <input type="text" name="address" class="form-control" value="">
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoại :</label>
+                            <input type="text" name="phone" class="form-control" value="">
                         </div>
                         <div class="form-group">
                             <label>Note :</label>

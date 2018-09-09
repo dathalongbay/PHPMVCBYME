@@ -14,7 +14,8 @@ class adminModel extends Database {
         'address' => '',
         'phone' => '',
         'note' => '',
-        'status' => 0
+        'status' => 0,
+        'avatar' => '',
     );
 
     public $type_fields = array(
@@ -27,7 +28,8 @@ class adminModel extends Database {
         'address' => 'text',
         'phone' => 'text',
         'note' => 'text',
-        'status' => 'int'
+        'status' => 'int',
+        'avatar' => 'text',
     );
 
     public $conn;
@@ -97,13 +99,21 @@ class adminModel extends Database {
 
         $id = isset($data['id']) ? $data['id'] : 0;
 
-
+        if (isset($_FILES['avatar']) && !empty($_FILES['avatar']) && !empty($_FILES['avatar']['name'])) {
+            $uploader = new Uploader();
+            $upload_respond = $uploader->upload('avatar');
+            $data['avatar'] = $upload_respond['new_file'];
+        }
 
         if ($id > 0) {
 
             $data_old = $this->getRow($id);
             $data = array_merge($data_old, $data);
             unset($data['id']);
+
+            if (isset($data['password']) && !empty($data['password'])) {
+                $data['password'] = md5($data['password']);
+            }
 
             $update = '';
             foreach ($data as $field => $value) {
@@ -126,8 +136,6 @@ class adminModel extends Database {
 
             // update
             $sql = "UPDATE ".$this->table." SET ".$update." WHERE id=".(int)$id;
-
-
 
             if ($this->conn->query($sql) === TRUE) {
                 return true;

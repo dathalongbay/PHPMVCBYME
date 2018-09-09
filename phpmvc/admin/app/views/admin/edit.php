@@ -13,15 +13,27 @@
                         <a class="btn btn-success" href="<?php echo ADMIN_URL . 'index.php?controller=admin'; ?>">Danh sách quản trị viên</a>
                     </div>
 
-                    <form name="" action="<?php echo ADMIN_URL . 'index.php?controller=admin&action=store'; ?>" method="post">
+                    <form name="admin" action="<?php echo ADMIN_URL . 'index.php?controller=admin&action=store'; ?>" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>Email :</label>
                             <input type="text" name="email" class="form-control" value="<?php echo $admin['email'] ?>">
                             <input type="hidden" name="id" class="form-control" value="<?php echo $admin['id'] ?>">
                         </div>
                         <div class="form-group">
+                            <label>Đổi Password :</label>
+                            <input type="text" name="password" class="form-control" value="">
+                        </div>
+                        <div class="form-group">
                             <label>Username :</label>
                             <input type="text" name="username" class="form-control" value="<?php echo $admin['username'] ?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Ảnh đại diện :</label>
+                            <input type="file" name="avatar">
+                            <?php if (isset($admin['avatar']) && $admin['avatar']) : ?>
+                                <p style="margin: 12px"><img src="<?php echo URL_UPLOAD.$admin['avatar']?>" width="150px" /> </p>
+                                <input type="hidden" name="avatar" value="<?php echo $admin['avatar']?>">
+                            <?php endif; ?>
                         </div>
                         <div class="form-group">
                             <label>Tên :</label>

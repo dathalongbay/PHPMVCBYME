@@ -156,9 +156,9 @@
                 <li class="dropdown profile_details_drop">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         <div class="profile_img">
-                            <span class="prfil-img"><img src="<?php echo ADMIN_URL_ASSETS ?>images/p1.png" alt=""> </span>
+                            <span class="prfil-img"><img src="<?php echo URL_UPLOAD.$_SESSION["login_user"]['avatar'] ?>" width="50px" alt=""> </span>
                             <div class="user-name">
-                                <p><?php echo $_SESSION["login_user"]['username'] ?></p>
+                                <p><?php echo $_SESSION["login_user"]['username']; ?></p>
                                 <span>Administrator</span>
                             </div>
                             <i class="fa fa-angle-down lnr"></i>
