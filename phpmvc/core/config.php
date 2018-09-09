@@ -6,4 +6,4 @@
 define('DB_SERVERNAME', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_NAME', 'mvc');
+define('DB_NAME', 'codeme.edu.vn');
