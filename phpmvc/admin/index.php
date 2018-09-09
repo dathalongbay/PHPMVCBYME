@@ -16,6 +16,7 @@ define('HELPER_PATH', $site_path.'/core/helper');
 define('ADMIN_URL', 'http://codeme.edu.vn/admin/');
 define('ADMIN_URL_ASSETS', ADMIN_URL.'assets/');
 define('URL_UPLOAD', 'http://codeme.edu.vn/uploads/');
+//
 
 spl_autoload_register(function ($class_name) {
     $paths = array(ADMIN_APP_PATH, ADMIN_CONTROLLER_PATH, ADMIN_MODEL_PATH, ADMIN_VIEW_PATH, CORE_PATH, DB_PATH, HELPER_PATH);
