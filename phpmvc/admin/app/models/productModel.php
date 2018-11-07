@@ -1,23 +1,30 @@
 <?php
 
-class articleModel extends Database {
+class productModel extends Database {
 
-    public $table = 'article';
+    public $table = 'products';
 
     public $fields_valid = array('id',
-        'title', 'article_content',
-        'status');
+        'product_name', 'product_desc',
+        'product_slug', 'product_price',
+        'product_price_sell', 'created');
 
     public $fields = array(
-        'title' => '',
-        'article_content' => '',
-        'status' => 0
+        'product_name' => '',
+        'product_desc' => '',
+        'product_slug' => '',
+        'product_price' => 0,
+        'product_price_sell' => 0,
+        'created' => '',
     );
 
     public $type_fields = array(
-        'title' => 'text',
-        'article_content' => 'text',
-        'status' => 'int'
+        'product_name' => 'text',
+        'product_desc' => 'text',
+        'product_slug' => 'text',
+        'product_price' => 'int',
+        'product_price_sell' => 'int',
+        'created' => 'text',
     );
 
     public $conn;
@@ -65,6 +72,7 @@ class articleModel extends Database {
 
     public function store($arg_data) {
 
+
         $data = array();
         if (!empty($arg_data)) {
             foreach ($arg_data as $name => $value) {
@@ -73,6 +81,8 @@ class articleModel extends Database {
                 }
             }
         }
+
+
 
         $id = isset($data['id']) ? $data['id'] : 0;
 

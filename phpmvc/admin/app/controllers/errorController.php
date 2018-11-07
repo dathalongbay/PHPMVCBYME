@@ -11,3 +11,4 @@ class errorController extends appController{
         return $this->view('error', 'index', array('name' => $name));
     }
 }
+

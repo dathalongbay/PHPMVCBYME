@@ -1,11 +1,11 @@
 <?php
-class articleController extends appController{
+class productController extends appController{
 
-    public $controller = 'article';
+    public $controller = 'product';
 
-    public $model = 'articleModel';
+    public $model = 'productModel';
 
-    public $view = 'article';
+    public $view = 'product';
 
     public function __construct()
     {
@@ -20,19 +20,17 @@ class articleController extends appController{
         return $this->view($this->view, 'index', array('rows' => $rows));
     }
 
-
     public function editAction() {
 
         $id = isset($_GET['id']) ? $_GET['id'] : 0;
 
         $model = new $this->model();
-        $article = $model->getRow($id);
+        $row = $model->getRow($id);
 
-        return $this->view($this->view, 'edit', array('row' => $article));
+        return $this->view($this->view, 'edit', array('row' => $row));
     }
 
     public function addAction() {
-
 
         $model = new $this->model();
 
@@ -41,8 +39,6 @@ class articleController extends appController{
 
     public function storeAction() {
         $data = $_POST;
-
-
 
         $model = new $this->model();
         $store = $model->store($data);
@@ -58,6 +54,7 @@ class articleController extends appController{
             header("Location: $newURL");
             die();
         }
+
 
         if ($data['id'] > 0) {
             $newURL = ADMIN_URL . 'index.php?controller='.$this->controller.'&action=edit&id='.$data['id'];
@@ -83,7 +80,6 @@ class articleController extends appController{
 
         return $this->view($this->view, 'index', array('rows' => $rows));
     }
-
 
     public function viewAction() {
 

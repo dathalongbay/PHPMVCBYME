@@ -11,7 +11,7 @@ define('VIEW_PATH', SITE_PATH.'/app/views');
 define('CORE_PATH', SITE_PATH.'/core');
 define('DB_PATH', SITE_PATH.'/core/database');
 define('HELPER_PATH', SITE_PATH.'/core/helper');
-define('URL', 'http://codeme.edu.vn/');
+define('URL', 'http://localhost/phpmvcbyme/phpmvc/');
 define('URL_ASSETS', URL.'assets/');
 
 spl_autoload_register(function ($class_name) {

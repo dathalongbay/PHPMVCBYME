@@ -13,7 +13,7 @@ define('ADMIN_VIEW_PATH', $admin_path.'/app/views');
 define('CORE_PATH', $site_path.'/core');
 define('DB_PATH', $site_path.'/core/database');
 define('HELPER_PATH', $site_path.'/core/helper');
-define('ADMIN_URL', 'http://codeme.edu.vn/admin/');
+define('ADMIN_URL', 'http://localhost/phpmvcbyme/phpmvc/admin/');
 define('ADMIN_URL_ASSETS', ADMIN_URL.'assets/');
 define('URL_UPLOAD', 'http://codeme.edu.vn/uploads/');
 //

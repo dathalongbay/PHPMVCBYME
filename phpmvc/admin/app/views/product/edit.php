@@ -10,12 +10,12 @@
                 <div class="inner-block">
 
                     <div style="margin-bottom: 30px;">
-                        <a class="btn btn-success" href="<?php echo ADMIN_URL . 'index.php?controller=article'; ?>">Bài viết</a>
+                        <a class="btn btn-success" href="<?php echo ADMIN_URL . 'index.php?controller=product'; ?>">Sản phẩm</a>
                     </div>
 
                     <?php if (isset($_SESSION['store_record']) && $_SESSION['store_record'] == 1) : ?>
                         <div class="alert alert-success">
-                            Đã lưu bài viết thành công
+                            Đã lưu sản phẩm thành công
                         </div>
                     <?php endif; ?>
                     <?php if (isset($_SESSION['store_record']) && $_SESSION['store_record'] == 0) : ?>
@@ -25,15 +25,31 @@
                     <?php endif; ?>
                     <?php unset($_SESSION['store_record']); ?>
 
-                    <form name="article" action="<?php echo ADMIN_URL . 'index.php?controller=article&action=store'; ?>" method="post">
+                    <form name="product" action="<?php echo ADMIN_URL . 'index.php?controller=product&action=store'; ?>" method="post">
                         <div class="form-group">
-                            <label>Tiêu đề:</label>
-                            <input type="text" name="title" class="form-control" value="<?php echo $row['title'] ?>">
+                            <label>Tên sản phẩm:</label>
+                            <input type="text" name="product_name" class="form-control" value="<?php echo $row['product_name'] ?>">
                             <input type="hidden" name="id" class="form-control" value="<?php echo $row['id'] ?>">
                         </div>
+
+                        <div class="form-group">
+                            <label>Slug:</label>
+                            <input type="text" name="product_slug" class="form-control" value="<?php echo $row['product_slug'] ?>">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Giá gốc:</label>
+                            <input type="text" name="product_price" class="form-control" value="<?php echo $row['product_price'] ?>">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Giá bán:</label>
+                            <input type="text" name="product_price_sell" class="form-control" value="<?php echo $row['product_price_sell'] ?>">
+                        </div>
+
                         <div class="form-group">
                             <label>Nội dung:</label>
-                            <textarea name="article_content" class="form-control" rows="10"><?php echo $row['article_content'] ?></textarea>
+                            <textarea name="product_desc" class="form-control" rows="10"><?php echo $row['product_desc'] ?></textarea>
                         </div>
                         <div class="form-group">
                             <label>Trạng thái:</label>
@@ -65,13 +81,13 @@
                 e.preventDefault();
                 $('input[name="save"]').val(0);
 
-                $('form[name="article"]').submit();
+                $('form[name="product"]').submit();
 
             });
             $('#saveandexit').on('click', function(e) {
                 e.preventDefault();
                 $('input[name="save"]').val(1);
-                $('form[name="article"]').submit();
+                $('form[name="product"]').submit();
             });
         });
     </script>
